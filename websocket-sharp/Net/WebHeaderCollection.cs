@@ -52,7 +52,8 @@ using System.Text;
 namespace WebSocketSharp.Net
 {
   /// <summary>
-  /// Provides a collection of the HTTP headers associated with a request or response.
+  /// Provides a collection of the HTTP headers associated with a request or
+  /// response.
   /// </summary>
   [Serializable]
   [ComVisible (true)]
@@ -71,378 +72,475 @@ namespace WebSocketSharp.Net
     static WebHeaderCollection ()
     {
       _headers =
-        new Dictionary<string, HttpHeaderInfo> (StringComparer.InvariantCultureIgnoreCase) {
+        new Dictionary<string, HttpHeaderInfo> (
+          StringComparer.InvariantCultureIgnoreCase
+        )
+        {
           {
             "Accept",
             new HttpHeaderInfo (
               "Accept",
-              HttpHeaderType.Request | HttpHeaderType.Restricted | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "AcceptCharset",
             new HttpHeaderInfo (
               "Accept-Charset",
-              HttpHeaderType.Request | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request | HttpHeaderType.MultiValue
+            )
           },
           {
             "AcceptEncoding",
             new HttpHeaderInfo (
               "Accept-Encoding",
-              HttpHeaderType.Request | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request | HttpHeaderType.MultiValue
+            )
           },
           {
             "AcceptLanguage",
             new HttpHeaderInfo (
               "Accept-Language",
-              HttpHeaderType.Request | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request | HttpHeaderType.MultiValue
+            )
           },
           {
             "AcceptRanges",
             new HttpHeaderInfo (
               "Accept-Ranges",
-              HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response | HttpHeaderType.MultiValue
+            )
           },
           {
             "Age",
             new HttpHeaderInfo (
               "Age",
-              HttpHeaderType.Response)
+              HttpHeaderType.Response
+            )
           },
           {
             "Allow",
             new HttpHeaderInfo (
               "Allow",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "Authorization",
             new HttpHeaderInfo (
               "Authorization",
-              HttpHeaderType.Request | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request | HttpHeaderType.MultiValue
+            )
           },
           {
             "CacheControl",
             new HttpHeaderInfo (
               "Cache-Control",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "Connection",
             new HttpHeaderInfo (
               "Connection",
-              HttpHeaderType.Request |
-              HttpHeaderType.Response |
-              HttpHeaderType.Restricted |
-              HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "ContentEncoding",
             new HttpHeaderInfo (
               "Content-Encoding",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "ContentLanguage",
             new HttpHeaderInfo (
               "Content-Language",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "ContentLength",
             new HttpHeaderInfo (
               "Content-Length",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.Restricted)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+            )
           },
           {
             "ContentLocation",
             new HttpHeaderInfo (
               "Content-Location",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "ContentMd5",
             new HttpHeaderInfo (
               "Content-MD5",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "ContentRange",
             new HttpHeaderInfo (
               "Content-Range",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "ContentType",
             new HttpHeaderInfo (
               "Content-Type",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.Restricted)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+            )
           },
           {
             "Cookie",
             new HttpHeaderInfo (
               "Cookie",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "Cookie2",
             new HttpHeaderInfo (
               "Cookie2",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "Date",
             new HttpHeaderInfo (
               "Date",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.Restricted)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+            )
           },
           {
             "Expect",
             new HttpHeaderInfo (
               "Expect",
-              HttpHeaderType.Request | HttpHeaderType.Restricted | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "Expires",
             new HttpHeaderInfo (
               "Expires",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "ETag",
             new HttpHeaderInfo (
               "ETag",
-              HttpHeaderType.Response)
+              HttpHeaderType.Response
+            )
           },
           {
             "From",
             new HttpHeaderInfo (
               "From",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "Host",
             new HttpHeaderInfo (
               "Host",
-              HttpHeaderType.Request | HttpHeaderType.Restricted)
+              HttpHeaderType.Request | HttpHeaderType.Restricted
+            )
           },
           {
             "IfMatch",
             new HttpHeaderInfo (
               "If-Match",
-              HttpHeaderType.Request | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request | HttpHeaderType.MultiValue
+            )
           },
           {
             "IfModifiedSince",
             new HttpHeaderInfo (
               "If-Modified-Since",
-              HttpHeaderType.Request | HttpHeaderType.Restricted)
+              HttpHeaderType.Request | HttpHeaderType.Restricted
+            )
           },
           {
             "IfNoneMatch",
             new HttpHeaderInfo (
               "If-None-Match",
-              HttpHeaderType.Request | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request | HttpHeaderType.MultiValue
+            )
           },
           {
             "IfRange",
             new HttpHeaderInfo (
               "If-Range",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "IfUnmodifiedSince",
             new HttpHeaderInfo (
               "If-Unmodified-Since",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "KeepAlive",
             new HttpHeaderInfo (
               "Keep-Alive",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "LastModified",
             new HttpHeaderInfo (
               "Last-Modified",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "Location",
             new HttpHeaderInfo (
               "Location",
-              HttpHeaderType.Response)
+              HttpHeaderType.Response
+            )
           },
           {
             "MaxForwards",
             new HttpHeaderInfo (
               "Max-Forwards",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "Pragma",
             new HttpHeaderInfo (
               "Pragma",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "ProxyAuthenticate",
             new HttpHeaderInfo (
               "Proxy-Authenticate",
-              HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response | HttpHeaderType.MultiValue
+            )
           },
           {
             "ProxyAuthorization",
             new HttpHeaderInfo (
               "Proxy-Authorization",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "ProxyConnection",
             new HttpHeaderInfo (
               "Proxy-Connection",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.Restricted)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+            )
           },
           {
             "Public",
             new HttpHeaderInfo (
               "Public",
-              HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response | HttpHeaderType.MultiValue
+            )
           },
           {
             "Range",
             new HttpHeaderInfo (
               "Range",
-              HttpHeaderType.Request | HttpHeaderType.Restricted | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "Referer",
             new HttpHeaderInfo (
               "Referer",
-              HttpHeaderType.Request | HttpHeaderType.Restricted)
+              HttpHeaderType.Request | HttpHeaderType.Restricted
+            )
           },
           {
             "RetryAfter",
             new HttpHeaderInfo (
               "Retry-After",
-              HttpHeaderType.Response)
+              HttpHeaderType.Response
+            )
           },
           {
             "SecWebSocketAccept",
             new HttpHeaderInfo (
               "Sec-WebSocket-Accept",
-              HttpHeaderType.Response | HttpHeaderType.Restricted)
+              HttpHeaderType.Response | HttpHeaderType.Restricted
+            )
           },
           {
             "SecWebSocketExtensions",
             new HttpHeaderInfo (
               "Sec-WebSocket-Extensions",
-              HttpHeaderType.Request |
-              HttpHeaderType.Response |
-              HttpHeaderType.Restricted |
-              HttpHeaderType.MultiValueInRequest)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValueInRequest
+            )
           },
           {
             "SecWebSocketKey",
             new HttpHeaderInfo (
               "Sec-WebSocket-Key",
-              HttpHeaderType.Request | HttpHeaderType.Restricted)
+              HttpHeaderType.Request | HttpHeaderType.Restricted
+            )
           },
           {
             "SecWebSocketProtocol",
             new HttpHeaderInfo (
               "Sec-WebSocket-Protocol",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValueInRequest)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValueInRequest
+            )
           },
           {
             "SecWebSocketVersion",
             new HttpHeaderInfo (
               "Sec-WebSocket-Version",
-              HttpHeaderType.Request |
-              HttpHeaderType.Response |
-              HttpHeaderType.Restricted |
-              HttpHeaderType.MultiValueInResponse)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValueInResponse
+            )
           },
           {
             "Server",
             new HttpHeaderInfo (
               "Server",
-              HttpHeaderType.Response)
+              HttpHeaderType.Response
+            )
           },
           {
             "SetCookie",
             new HttpHeaderInfo (
               "Set-Cookie",
-              HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response | HttpHeaderType.MultiValue
+            )
           },
           {
             "SetCookie2",
             new HttpHeaderInfo (
               "Set-Cookie2",
-              HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response | HttpHeaderType.MultiValue
+            )
           },
           {
             "Te",
             new HttpHeaderInfo (
               "TE",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "Trailer",
             new HttpHeaderInfo (
               "Trailer",
-              HttpHeaderType.Request | HttpHeaderType.Response)
+              HttpHeaderType.Request | HttpHeaderType.Response
+            )
           },
           {
             "TransferEncoding",
             new HttpHeaderInfo (
               "Transfer-Encoding",
-              HttpHeaderType.Request |
-              HttpHeaderType.Response |
-              HttpHeaderType.Restricted |
-              HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "Translate",
             new HttpHeaderInfo (
               "Translate",
-              HttpHeaderType.Request)
+              HttpHeaderType.Request
+            )
           },
           {
             "Upgrade",
             new HttpHeaderInfo (
               "Upgrade",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "UserAgent",
             new HttpHeaderInfo (
               "User-Agent",
-              HttpHeaderType.Request | HttpHeaderType.Restricted)
+              HttpHeaderType.Request | HttpHeaderType.Restricted
+            )
           },
           {
             "Vary",
             new HttpHeaderInfo (
               "Vary",
-              HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response | HttpHeaderType.MultiValue
+            )
           },
           {
             "Via",
             new HttpHeaderInfo (
               "Via",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "Warning",
             new HttpHeaderInfo (
               "Warning",
-              HttpHeaderType.Request | HttpHeaderType.Response | HttpHeaderType.MultiValue)
+              HttpHeaderType.Request
+              | HttpHeaderType.Response
+              | HttpHeaderType.MultiValue
+            )
           },
           {
             "WwwAuthenticate",
             new HttpHeaderInfo (
               "WWW-Authenticate",
-              HttpHeaderType.Response | HttpHeaderType.Restricted | HttpHeaderType.MultiValue)
+              HttpHeaderType.Response
+              | HttpHeaderType.Restricted
+              | HttpHeaderType.MultiValue
+            )
           }
         };
     }
@@ -462,23 +560,28 @@ namespace WebSocketSharp.Net
     #region Protected Constructors
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="WebHeaderCollection"/> class from
-    /// the specified <see cref="SerializationInfo"/> and <see cref="StreamingContext"/>.
+    /// Initializes a new instance of the <see cref="WebHeaderCollection"/> class
+    /// from the specified instances of the <see cref="SerializationInfo"/> and
+    /// <see cref="StreamingContext"/> classes.
     /// </summary>
     /// <param name="serializationInfo">
-    /// A <see cref="SerializationInfo"/> that contains the serialized object data.
+    /// A <see cref="SerializationInfo"/> that contains the serialized
+    /// object data.
     /// </param>
     /// <param name="streamingContext">
-    /// A <see cref="StreamingContext"/> that specifies the source for the deserialization.
+    /// A <see cref="StreamingContext"/> that specifies the source for
+    /// the deserialization.
     /// </param>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="serializationInfo"/> is <see langword="null"/>.
     /// </exception>
     /// <exception cref="ArgumentException">
-    /// An element with the specified name isn't found in <paramref name="serializationInfo"/>.
+    /// An element with the specified name is not found in
+    /// <paramref name="serializationInfo"/>.
     /// </exception>
     protected WebHeaderCollection (
-      SerializationInfo serializationInfo, StreamingContext streamingContext)
+      SerializationInfo serializationInfo, StreamingContext streamingContext
+    )
     {
       if (serializationInfo == null)
         throw new ArgumentNullException ("serializationInfo");
@@ -488,10 +591,12 @@ namespace WebSocketSharp.Net
         _state = (HttpHeaderType) serializationInfo.GetInt32 ("State");
 
         var cnt = serializationInfo.GetInt32 ("Count");
+
         for (var i = 0; i < cnt; i++) {
           base.Add (
             serializationInfo.GetString (i.ToString ()),
-            serializationInfo.GetString ((cnt + i).ToString ()));
+            serializationInfo.GetString ((cnt + i).ToString ())
+          );
         }
       }
       catch (SerializationException ex) {
@@ -504,7 +609,8 @@ namespace WebSocketSharp.Net
     #region Public Constructors
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="WebHeaderCollection"/> class.
+    /// Initializes a new instance of the <see cref="WebHeaderCollection"/>
+    /// class.
     /// </summary>
     public WebHeaderCollection ()
     {
@@ -683,12 +789,22 @@ namespace WebSocketSharp.Net
 
     private static string checkName (string name)
     {
-      if (name == null || name.Length == 0)
+      if (name == null)
         throw new ArgumentNullException ("name");
 
+      if (name.Length == 0)
+        throw new ArgumentException ("An empty string.", "name");
+
       name = name.Trim ();
-      if (!IsHeaderName (name))
-        throw new ArgumentException ("Contains invalid characters.", "name");
+
+      if (name.Length == 0)
+        throw new ArgumentException ("A string of spaces.", "name");
+
+      if (!IsHeaderName (name)) {
+        var msg = "It contains an invalid character.";
+
+        throw new ArgumentException (msg, "name");
+      }
 
       return name;
     }
@@ -823,7 +939,7 @@ namespace WebSocketSharp.Net
 
     internal static bool IsHeaderName (string name)
     {
-      return name != null && name.Length > 0 && name.IsToken ();
+      return name.IsToken ();
     }
 
     internal static bool IsHeaderValue (string value)
@@ -1146,22 +1262,28 @@ namespace WebSocketSharp.Net
     }
 
     /// <summary>
-    /// Populates the specified <see cref="SerializationInfo"/> with the data needed to serialize
-    /// the <see cref="WebHeaderCollection"/>.
+    /// Populates a <see cref="SerializationInfo"/> instance with the data
+    /// needed to serialize this instance.
     /// </summary>
     /// <param name="serializationInfo">
-    /// A <see cref="SerializationInfo"/> that holds the serialized object data.
+    /// A <see cref="SerializationInfo"/> to populate with the data.
     /// </param>
     /// <param name="streamingContext">
-    /// A <see cref="StreamingContext"/> that specifies the destination for the serialization.
+    /// A <see cref="StreamingContext"/> that specifies the destination for
+    /// the serialization.
     /// </param>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="serializationInfo"/> is <see langword="null"/>.
     /// </exception>
-    [SecurityPermission (
-      SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+    [
+      SecurityPermission (
+        SecurityAction.LinkDemand,
+        Flags = SecurityPermissionFlag.SerializationFormatter
+      )
+    ]
     public override void GetObjectData (
-      SerializationInfo serializationInfo, StreamingContext streamingContext)
+      SerializationInfo serializationInfo, StreamingContext streamingContext
+    )
     {
       if (serializationInfo == null)
         throw new ArgumentNullException ("serializationInfo");
@@ -1170,12 +1292,13 @@ namespace WebSocketSharp.Net
       serializationInfo.AddValue ("State", (int) _state);
 
       var cnt = Count;
+
       serializationInfo.AddValue ("Count", cnt);
-      cnt.Times (
-        i => {
-          serializationInfo.AddValue (i.ToString (), GetKey (i));
-          serializationInfo.AddValue ((cnt + i).ToString (), Get (i));
-        });
+
+      for (var i = 0; i < cnt; i++) {
+        serializationInfo.AddValue (i.ToString (), GetKey (i));
+        serializationInfo.AddValue ((cnt + i).ToString (), Get (i));
+      }
     }
 
     /// <summary>

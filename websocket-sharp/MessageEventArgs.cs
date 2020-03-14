@@ -170,7 +170,10 @@ namespace WebSocketSharp
         return;
       }
 
-      _data = _rawData.UTF8Decode ();
+      string data;
+      if (_rawData.TryGetUTF8DecodedString (out data))
+        _data = data;
+
       _dataSet = true;
     }
 
