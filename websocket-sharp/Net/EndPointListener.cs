@@ -256,7 +256,7 @@ namespace WebSocketSharp.Net
     {
       HttpConnection conn = null;
       try {
-        conn = new HttpConnection (socket, listener);
+        conn = new HttpConnection (socket, listener, listener._logger);
         lock (listener._unregisteredSync)
           listener._unregistered[conn] = conn;
 

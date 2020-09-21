@@ -70,6 +70,7 @@ namespace WebSocketSharp.Net
     private HttpListener          _lastListener;
     private LineState             _lineState;
     private EndPointListener      _listener;
+    private Logger                _logger;
     private EndPoint              _localEndPoint;
     private ResponseStream        _outputStream;
     private int                   _position;
@@ -88,10 +89,11 @@ namespace WebSocketSharp.Net
 
     #region Internal Constructors
 
-    internal HttpConnection (Socket socket, EndPointListener listener)
+    internal HttpConnection (Socket socket, EndPointListener listener, Logger logger)
     {
       _socket = socket;
       _listener = listener;
+      _logger = logger;
 
       var netStream = new NetworkStream (socket, false);
       if (listener.IsSecure) {
@@ -251,7 +253,7 @@ namespace WebSocketSharp.Net
       _requestBuffer = new MemoryStream ();
     }
 
-    private static void onRead (IAsyncResult asyncResult)
+    private void onRead (IAsyncResult asyncResult)
     {
       var conn = (HttpConnection) asyncResult.AsyncState;
       if (conn._socket == null)
@@ -323,8 +325,17 @@ namespace WebSocketSharp.Net
 
           return;
         }
-
-        conn._stream.BeginRead (conn._buffer, 0, _bufferLength, onRead, conn);
+        try
+        {
+          conn._stream.BeginRead(conn._buffer, 0, _bufferLength, onRead, conn);
+        }
+        catch(Exception ex)
+        {
+          if (_logger != null)
+            _logger.Error(ex.ToString());
+          conn.close();
+          return;
+        }
       }
     }
 
