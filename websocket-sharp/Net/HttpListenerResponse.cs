@@ -927,20 +927,37 @@ namespace WebSocketSharp.Net
     /// the headers for the response.
     /// </summary>
     /// <param name="name">
-    /// A <see cref="string"/> that represents the name of the header to
+    /// A <see cref="string"/> that specifies the name of the header to
     /// append.
     /// </param>
     /// <param name="value">
-    /// A <see cref="string"/> that represents the value of the header to
+    /// A <see cref="string"/> that specifies the value of the header to
     /// append.
     /// </param>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="name"/> is <see langword="null"/> or empty.
+    /// <paramref name="name"/> is <see langword="null"/>.
     /// </exception>
     /// <exception cref="ArgumentException">
     ///   <para>
-    ///   <paramref name="name"/> or <paramref name="value"/> contains
-    ///   an invalid character.
+    ///   <paramref name="name"/> is an empty string.
+    ///   </para>
+    ///   <para>
+    ///   -or-
+    ///   </para>
+    ///   <para>
+    ///   <paramref name="name"/> is a string of spaces.
+    ///   </para>
+    ///   <para>
+    ///   -or-
+    ///   </para>
+    ///   <para>
+    ///   <paramref name="name"/> contains an invalid character.
+    ///   </para>
+    ///   <para>
+    ///   -or-
+    ///   </para>
+    ///   <para>
+    ///   <paramref name="value"/> contains an invalid character.
     ///   </para>
     ///   <para>
     ///   -or-
@@ -954,7 +971,7 @@ namespace WebSocketSharp.Net
     /// characters.
     /// </exception>
     /// <exception cref="InvalidOperationException">
-    /// The header cannot be allowed to append to the current headers.
+    /// The current headers do not allow the header.
     /// </exception>
     public void AppendHeader (string name, string value)
     {
@@ -981,8 +998,8 @@ namespace WebSocketSharp.Net
     /// An array of <see cref="byte"/> that contains the entity body data.
     /// </param>
     /// <param name="willBlock">
-    /// <c>true</c> if this method blocks execution while flushing the stream
-    /// to the client; otherwise, <c>false</c>.
+    /// A <see cref="bool"/>: <c>true</c> if this method blocks execution while
+    /// flushing the stream to the client; otherwise, <c>false</c>.
     /// </param>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="responseEntity"/> is <see langword="null"/>.
@@ -1072,7 +1089,7 @@ namespace WebSocketSharp.Net
     /// 302, and the <see cref="StatusDescription"/> property to "Found".
     /// </remarks>
     /// <param name="url">
-    /// A <see cref="string"/> that represents the absolute URL to which
+    /// A <see cref="string"/> that specifies the absolute URL to which
     /// the client is redirected to locate a requested resource.
     /// </param>
     /// <exception cref="ArgumentNullException">
@@ -1157,18 +1174,35 @@ namespace WebSocketSharp.Net
     /// the headers for the response.
     /// </summary>
     /// <param name="name">
-    /// A <see cref="string"/> that represents the name of the header to set.
+    /// A <see cref="string"/> that specifies the name of the header to set.
     /// </param>
     /// <param name="value">
-    /// A <see cref="string"/> that represents the value of the header to set.
+    /// A <see cref="string"/> that specifies the value of the header to set.
     /// </param>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="name"/> is <see langword="null"/> or empty.
+    /// <paramref name="name"/> is <see langword="null"/>.
     /// </exception>
     /// <exception cref="ArgumentException">
     ///   <para>
-    ///   <paramref name="name"/> or <paramref name="value"/> contains
-    ///   an invalid character.
+    ///   <paramref name="name"/> is an empty string.
+    ///   </para>
+    ///   <para>
+    ///   -or-
+    ///   </para>
+    ///   <para>
+    ///   <paramref name="name"/> is a string of spaces.
+    ///   </para>
+    ///   <para>
+    ///   -or-
+    ///   </para>
+    ///   <para>
+    ///   <paramref name="name"/> contains an invalid character.
+    ///   </para>
+    ///   <para>
+    ///   -or-
+    ///   </para>
+    ///   <para>
+    ///   <paramref name="value"/> contains an invalid character.
     ///   </para>
     ///   <para>
     ///   -or-
@@ -1182,7 +1216,7 @@ namespace WebSocketSharp.Net
     /// characters.
     /// </exception>
     /// <exception cref="InvalidOperationException">
-    /// The header cannot be allowed to set in the current headers.
+    /// The current headers do not allow the header.
     /// </exception>
     public void SetHeader (string name, string value)
     {
