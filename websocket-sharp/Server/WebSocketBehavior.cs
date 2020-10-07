@@ -108,6 +108,12 @@ namespace WebSocketSharp.Server
       }
     }
 
+    protected WebSocket WebSocket {
+      get {
+        return _websocket;
+      }
+    }
+
     /// <summary>
     /// Gets the query string included in a WebSocket handshake request.
     /// </summary>
